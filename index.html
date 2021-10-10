@@ -49,7 +49,9 @@
     <div class="content" style="height: 300vh;">
         <div class="page_center">
             <div>
-                <img src="src/logo_simple.svg" class="titleimage" style="object-position:50% 0%;">
+                <div class="titleimagewrapper">
+                    <img src="src/logo_simple.svg" class="titleimage" style="object-position:50% 0%;top:0;">
+                </div>
             </div>
             <div style="visibility: hidden;">
                 <div class="titlecaption">第70回筑駒文化祭</div>
@@ -59,7 +61,10 @@
             </div>
         </div>
         <div class="page_center">
-            <!-- <img src="src/logo_simple_black.svg" class="titleimage" style="object-position:100% 0%;"> -->
+            <div class="titleimagewrapper">
+                <img src="src/logo_simple_black.svg" class="titleimage"
+                    style="object-position:50% 100%;bottom: 0;height: 0;">
+            </div>
             <div style="visibility: hidden;">
                 <div class="titlecaption">第70回筑駒文化祭</div>
                 <div class="video">
@@ -71,7 +76,9 @@
             <img src="src/hp_background.gif" class="topimage">
             <div class="bg_dot"></div>
             <div class="title">
-                <img src="src/logo_simple.svg" class="titleimage" style="visibility: hidden;">
+                <div class="titleimagewrapper">
+                    <img src="src/logo_simple.svg" class="titleimage" style="visibility: hidden;">
+                </div>
                 <div class="titlecaption">第70回筑駒文化祭</div>
                 <div class="video">
                     <a><img src="src/watch.svg" class="watch"></a>
@@ -127,13 +134,14 @@
 
         document.getElementById("ushi").onscroll = function () {
             {
-                let moji = document.getElementsByClassName("titlecaption")[2];
-                let vid = document.getElementsByClassName("video")[2];
+                let moji = document.getElementsByClassName("video")[2];
+                let tlogo = document.getElementsByClassName("titleimage")[1];
+                let vid = document.getElementsByClassName("titlecaption")[2];
                 let windowHeight = window.innerHeight;
-                let basho = windowHeight / 2 - vid.getBoundingClientRect().top;
+                let basho = tlogo.getBoundingClientRect().bottom - vid.getBoundingClientRect().top;
                 basho /= windowHeight
-                console.log(basho)
-                if (basho >= -.1) {
+                console.log(basho * windowHeight)
+                if (basho >= .13 || basho * windowHeight >= 0) {
                     moji.style.opacity = 0
                     vid.style.opacity = 0
                 } else {
@@ -144,15 +152,32 @@
             {
                 let logo = document.getElementsByClassName("titleimage")[0];
                 let logo2 = document.getElementsByClassName("titleimage")[1];
-                let haikei = document.getElementsByClassName('topimage')[0];
+                let haikei = document.getElementsByClassName('top')[0];
                 let windowHeight = window.innerHeight;
+                let windowWidth = window.innerWidth;
                 let kyoukai = haikei.getBoundingClientRect().bottom;
                 let ichi1 = logo.getBoundingClientRect().top;
                 let ichi2 = logo2.getBoundingClientRect().bottom;
-
-
+                $(logo).height(Math.min(Math.max(0, kyoukai - ichi1), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
+                $(logo2).height(Math.min(Math.max(0, ichi2 - kyoukai), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
             }
         }
+        window.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('resize', function () {
+                {
+                    let logo = document.getElementsByClassName("titleimage")[0];
+                    let logo2 = document.getElementsByClassName("titleimage")[1];
+                    let haikei = document.getElementsByClassName('top')[0];
+                    let windowHeight = window.innerHeight;
+                    let windowWidth = window.innerWidth;
+                    let kyoukai = haikei.getBoundingClientRect().bottom;
+                    let ichi1 = logo.getBoundingClientRect().top;
+                    let ichi2 = logo2.getBoundingClientRect().bottom;
+                    $(logo).height(Math.min(Math.max(0, kyoukai - ichi1), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
+                    $(logo2).height(Math.min(Math.max(0, ichi2 - kyoukai), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
+                }
+            });
+        });
 //TK73:@otameshicpp(AndrewK),@Goddess_soa( (S _ S) )
 
     </script>
