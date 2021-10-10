@@ -21,10 +21,19 @@
     <title>筑駒文化祭 CG研究会</title>
     <style>
         .logo{
-            text-align: center;
+            height: 100%;
+            width: 100%;
+            position: relative;
         }
         .logoImage{
-            width: 30%;
+            width: 100%;
+        }
+        .logoImageDiv{
+            position: absolute;
+            width: 20%;
+            transform: translateY(-50%) translateX(-50%);
+            top:50vh;
+            left:50vw;
         }
     </style>
 </head>
@@ -32,7 +41,7 @@
     <header>
     </header>
     <div class="logo">
-        <img class="logoImage" src="images/logo.png" alt="ロゴ">
+        <div class="logoImageDiv"><img class="logoImage" src="images/logo.png" alt="ロゴ"></div>
     </div>
     <footer>
 
