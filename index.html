@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords"
+        content="CG研, 文化祭, 筑駒, CとG, プロジェクションマッピング, ホログラム, 男子校, 筑波大学附属駒場中学校, 筑波大学付属駒場中学校, EVERGREEN, 第70回, 駒場, 筑波, 高校, 中学, 中学校, 高等学校, つくこま, ぶんかさい" />
+    <meta property="og:site_name" content="CとG - 筑駒CG研究会" />
+    <meta property="og:url" content="リンク" />
+    <link rel="canonical" href="リンク" />
+    <meta property="og:image" content="favicon.png" />
+    <!-- <meta property="twitter:image" content="https://the-fictional-world.net/favicon.png" />-->
+    <meta property="twitter:title" content="2021筑駒文化祭CG研究会公式サイト" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="ようこそ！筑駒CG研究会文化祭デコへ。コンピューターグラフィックスの感動を、今。" />
+    <meta name="twitter:site" content="@2C_AR_VR" />
+    <meta name="twitter:description" content="ようこそ！筑駒2CHR文化祭デコへ。コンピューターグラフィックスの感動を、今。" />
+    <meta property="og:locale" content="ja_JP" />
+    <!-- <meta name="google-site-verification" content="6NvpEdqQzk7HnfRCK8BYSzq1brAsRhDAUGYIZPmqYVw" /> -->
+
+    <title>CとG - 筑駒CG研究会</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <script src="jquery-3.5.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body id="ushi">
+    <header>
+        <div>
+
+        </div>
+    </header>
+    <div class="content" style="height: 300vh;">
+        <div class="page_center">
+            <div>
+                <img src="src/logo_simple.svg" class="titleimage" style="object-position:50% 0%;">
+            </div>
+            <div style="visibility: hidden;">
+                <div class="titlecaption">第70回筑駒文化祭</div>
+                <div class="video">
+                    <a><img src="src/watch.svg" class="watch"></a>
+                </div>
+            </div>
+        </div>
+        <div class="page_center">
+            <!-- <img src="src/logo_simple_black.svg" class="titleimage" style="object-position:100% 0%;"> -->
+            <div style="visibility: hidden;">
+                <div class="titlecaption">第70回筑駒文化祭</div>
+                <div class="video">
+                    <a><img src="src/watch.svg" class="watch"></a>
+                </div>
+            </div>
+        </div>
+        <div class="top" style="overflow: hidden;">
+            <img src="src/hp_background.gif" class="topimage">
+            <div class="bg_dot"></div>
+            <div class="title">
+                <img src="src/logo_simple.svg" class="titleimage" style="visibility: hidden;">
+                <div class="titlecaption">第70回筑駒文化祭</div>
+                <div class="video">
+                    <a><img src="src/watch.svg" class="watch"></a>
+                </div>
+            </div>
+            <div id="PV">
+                <video src="src/PV-small.mp4" controls loading="lazy" id="PV_in"
+                    style="position: relative; margin: auto; top:50%; width: 80%; transform: translate(0%,-50%);"></video>
+                <p id="batsu">×</p>
+            </div>
+        </div>
+
+
+        <!-- <div class="logo">
+            <a href="Augmented.html"><img src="src/Regular_tetrahedron.png" class="cube"></a><a href="virtual.html"><img
+                    src="src/cube.png" class="cube2"></a><a href=""><img src="src/hatena.png" class="cube3"></a>
+        </div> -->
+
+    </div>
+    <div class="footer">
+        <h3 class="foo-title">CとG</h3>
+        <ul>
+            <li style="margin-bottom: 2vh;"><a href="https://tsukukoma.bunkasai.info/" style="color: white;"
+                    target="_blank">本校文化祭公式HP</a>
+            </li>
+            <li>お問い合わせ&middot;ご感想</li>
+        </ul>
+        <div class="copy">
+            <p>&copy;the&nbsp;fictional&nbsp;world&nbsp;HP&nbsp;production&nbsp;committee</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementsByClassName("watch")[2].addEventListener("click", function () {
+            console.log("show")
+            let pv = document.getElementById("PV");
+            let bod = document.getElementById("ushi");
+            pv.style.display = "block";
+            $(pv).animate({
+                opacity: 1
+            }, 600)
+        })
+        function closeVideo() {
+            console.log("close")
+            let pv = document.getElementById("PV");
+            document.getElementById("PV_in").pause();
+            $(pv).animate({
+                opacity: 0
+            }, 600)
+            setTimeout(function () { pv.style.display = "none"; }, 600)
+        }
+        document.getElementById("batsu").addEventListener("click", closeVideo)
+
+        document.getElementById("ushi").onscroll = function () {
+            {
+                let moji = document.getElementsByClassName("titlecaption")[2];
+                let vid = document.getElementsByClassName("video")[2];
+                let windowHeight = window.innerHeight;
+                let basho = windowHeight / 2 - vid.getBoundingClientRect().top;
+                basho /= windowHeight
+                console.log(basho)
+                if (basho >= -.1) {
+                    moji.style.opacity = 0
+                    vid.style.opacity = 0
+                } else {
+                    moji.style.opacity = 1
+                    vid.style.opacity = 1
+                }
+            }
+            {
+                let logo = document.getElementsByClassName("titleimage")[0];
+                let logo2 = document.getElementsByClassName("titleimage")[1];
+                let haikei = document.getElementsByClassName('topimage')[0];
+                let windowHeight = window.innerHeight;
+                let kyoukai = haikei.getBoundingClientRect().bottom;
+                let ichi1 = logo.getBoundingClientRect().top;
+                let ichi2 = logo2.getBoundingClientRect().bottom;
+
+
+            }
+        }
+//TK73:@otameshicpp(AndrewK),@Goddess_soa( (S _ S) )
+
+    </script>
+</body>
+
+</html>
