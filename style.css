@@ -81,10 +81,10 @@
         min-width: 30px;
       }
         .titleimage{
-            width: 20vw;
-            min-width: 150px;
-            position: relative;
-            top: 0%;
+            position: absolute;
+            width: 100%;
+            margin: 0;
+            left: 0;
             object-fit: cover;
         }
         .title{
@@ -120,6 +120,16 @@
             width:15vw;
             min-width: 150px;
             cursor: pointer;
+        }
+        .titleimagewrapper{
+            position: relative;
+            width: 20vw;
+            min-width: 150px;
+            height: calc(max(20vw,150px)*0.6912);
+            left: 50vw;
+            transform: translate(-50%,0);
+            margin: 0;
+            margin-bottom: max(4vh,5px);
         }
 
 .video{
