@@ -129,13 +129,14 @@
 
         document.getElementById("ushi").onscroll = function () {
             {
-                let moji = document.getElementsByClassName("titlecaption")[2];
-                let vid = document.getElementsByClassName("video")[2];
+                let moji = document.getElementsByClassName("video")[2];
+                let tlogo = document.getElementsByClassName("titleimage")[1];
+                let vid = document.getElementsByClassName("titlecaption")[2];
                 let windowHeight = window.innerHeight;
-                let basho = windowHeight / 2 - vid.getBoundingClientRect().top;
+                let basho = tlogo.getBoundingClientRect().bottom - vid.getBoundingClientRect().top;
                 basho /= windowHeight
-                // console.log(basho)
-                if (basho >= -.1) {
+                console.log(basho * windowHeight)
+                if (basho >= .13 || basho * windowHeight >= 0) {
                     moji.style.opacity = 0
                     vid.style.opacity = 0
                 } else {
@@ -152,7 +153,6 @@
                 let kyoukai = haikei.getBoundingClientRect().bottom;
                 let ichi1 = logo.getBoundingClientRect().top;
                 let ichi2 = logo2.getBoundingClientRect().bottom;
-                console.log(kyoukai);
                 $(logo).height(Math.min(Math.max(0, kyoukai - ichi1), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
                 $(logo2).height(Math.min(Math.max(0, ichi2 - kyoukai), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
             }
@@ -168,7 +168,6 @@
                     let kyoukai = haikei.getBoundingClientRect().bottom;
                     let ichi1 = logo.getBoundingClientRect().top;
                     let ichi2 = logo2.getBoundingClientRect().bottom;
-                    console.log(kyoukai);
                     $(logo).height(Math.min(Math.max(0, kyoukai - ichi1), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
                     $(logo2).height(Math.min(Math.max(0, ichi2 - kyoukai), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
                 }
