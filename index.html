@@ -30,6 +30,11 @@
     <!-- <script src="jquery-3.5.1.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
 
 
 
@@ -41,24 +46,15 @@
 
         </div>
     </header>
-    <div class="content" style="height: 300vh;">
+    <div class="content">
         <div class="page_center">
             <div>
                 <div class="titleimagewrapper">
-                    <img src="src/logo_simple.svg" class="titleimage" style="object-position:50% 0%;top:0;">
+                    <img src="src/logo_simple.svg" class="titleimage" id="whitetitleimage"
+                        style="object-position:50% 0%;top:0;opacity: 0;">
+                    <img src="src/logo_simple_black.svg" class="titleimage" id="blacktitleimage"
+                        style="object-position:50% 100%;bottom: 0;height: 0;opacity: 0;">
                 </div>
-            </div>
-            <div style="visibility: hidden;">
-                <div class="titlecaption">第70回筑駒文化祭</div>
-                <div class="video">
-                    <a><img src="src/watch.svg" class="watch"></a>
-                </div>
-            </div>
-        </div>
-        <div class="page_center">
-            <div class="titleimagewrapper">
-                <img src="src/logo_simple_black.svg" class="titleimage"
-                    style="object-position:50% 100%;bottom: 0;height: 0;">
             </div>
             <div style="visibility: hidden;">
                 <div class="titlecaption">第70回筑駒文化祭</div>
@@ -74,8 +70,8 @@
                 <div class="titleimagewrapper">
                     <img src="src/logo_simple.svg" class="titleimage" style="visibility: hidden;">
                 </div>
-                <div class="titlecaption">第70回筑駒文化祭</div>
-                <div class="video">
+                <div class="titlecaption" id="visiblecaption" style="opacity: 0;">第70回筑駒文化祭</div>
+                <div class="video" style="cursor: pointer;opacity: 0;" id="visiblevideo">
                     <a><img src="src/watch.svg" class="watch"></a>
                 </div>
             </div>
@@ -86,11 +82,19 @@
             </div>
         </div>
 
+        <div class="desc-wrapper">
+            <h2 class="desc-title">ホログラム</h2>
+            <h2 class="desc-title" style="font-size: 1.6rem;">プロジェクションマッピング</h2>
+            <h2 class="desc-title">動画</h2>
+            <h2 class="desc-title">3Dプリンタ</h2>
+            <a class="desc-text">浮いてます浮いてます浮いてます浮いてます浮いてます浮いてます浮いてます浮いてます</a>
+            <a class="desc-text">立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体</a>
+            <a class="desc-text">動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く</a>
+            <a class="desc-text">印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷</a>
+            <div class="hider"></div>
+        </div>
 
-        <!-- <div class="logo">
-            <a href="Augmented.html"><img src="src/Regular_tetrahedron.png" class="cube"></a><a href="virtual.html"><img
-                    src="src/cube.png" class="cube2"></a><a href=""><img src="src/hatena.png" class="cube3"></a>
-        </div> -->
+
 
     </div>
     <div class="footer">
@@ -107,7 +111,7 @@
     </div>
 
     <script>
-        document.getElementsByClassName("watch")[2].addEventListener("click", function () {
+        document.getElementById("visiblevideo").addEventListener("click", function () {
             console.log("show")
             let pv = document.getElementById("PV");
             let bod = document.getElementById("ushi");
@@ -129,22 +133,26 @@
 
         document.getElementById("ushi").onscroll = function () {
             {
-                let moji = document.getElementsByClassName("video")[2];
-                let tlogo = document.getElementsByClassName("titleimage")[1];
-                let vid = document.getElementsByClassName("titlecaption")[2];
+                //キャプション非表示プログラム
+                let moji = document.getElementById("visiblecaption");
+                let tlogo = document.getElementById("whitetitleimage");
+                let vid = document.getElementById("visiblevideo");
                 let windowHeight = window.innerHeight;
                 let basho = tlogo.getBoundingClientRect().bottom - vid.getBoundingClientRect().top;
                 basho /= windowHeight
-                console.log(basho * windowHeight)
+                // console.log(basho * windowHeight)
                 if (basho >= .13 || basho * windowHeight >= 0) {
                     moji.style.opacity = 0
                     vid.style.opacity = 0
+                    moji.style.cursor = "default";
                 } else {
                     moji.style.opacity = 1
                     vid.style.opacity = 1
+                    moji.style.cursor = "pointer";
                 }
             }
             {
+                //ロゴの色入れ替えプログラム
                 let logo = document.getElementsByClassName("titleimage")[0];
                 let logo2 = document.getElementsByClassName("titleimage")[1];
                 let haikei = document.getElementsByClassName('top')[0];
@@ -155,6 +163,29 @@
                 let ichi2 = logo2.getBoundingClientRect().bottom;
                 $(logo).height(Math.min(Math.max(0, kyoukai - ichi1), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
                 $(logo2).height(Math.min(Math.max(0, ichi2 - kyoukai), Math.min(Math.max(windowWidth * .2, 150)) * 150 / 217));
+            }
+            {
+                //説明非表示プログラム
+                let posY = window.scrollY;
+                let windowHeight = window.innerHeight;
+                let memo = document.getElementsByClassName('desc-title')
+                let cnt = posY / windowHeight
+                // console.log(cnt)
+                for (var i = 0; i < memo.length; i++) {
+                    if (i + 1 < cnt && cnt < i + 2) {
+                        memo[i].style.top = '7vh';
+                    } else {
+                        memo[i].style.top = '15vh';
+                    }
+                }
+                let memo2 = document.getElementsByClassName('desc-text')
+                for (var i = 0; i < memo2.length; i++) {
+                    if (i + 1 < cnt && cnt < i + 2) {
+                        memo2[i].style.opacity = 1;
+                    } else {
+                        memo2[i].style.opacity = 0;
+                    }
+                }
             }
         }
         window.addEventListener('DOMContentLoaded', function () {
@@ -173,6 +204,34 @@
                 }
             });
         });
+
+        var $win = $(window);
+
+        $win.on('load', function () {
+            var windowWidth = window.innerWidth;
+            var cnt = 0;
+            let bg = document.getElementsByClassName('bg_dot')[0]
+            $(window).ready(function () {
+                $('#whitetitleimage').animate({
+                    opacity: 1
+                }, 1000)
+                $('#blacktitleimage').animate({
+                    opacity: 1
+                }, 1000)
+                setTimeout(function () {
+                    let topimage = document.getElementsByClassName('topimage')[0];
+                    topimage.style.opacity = 1;
+                }, 700)
+                setTimeout(function () {
+                    let visicaption = document.getElementById('visiblecaption');
+                    let visivideo = document.getElementById('visiblevideo');
+                    visicaption.style.opacity = 1;
+                    visivideo.style.opacity = 1;
+                }, 2000)
+
+            });
+        });
+
 //TK73:@otameshicpp(AndrewK),@Goddess_soa( (S _ S) )
 
     </script>
