@@ -387,8 +387,8 @@
 .desc-title{
     position:fixed;
     left: 4vw;
-    top: 15vh;
-    font-size: min(max(7vw,30px),40px);
+    top: 5vh;
+    height:5vh;
     margin: 0;
     font-family: 'Klee One', cursive;
     opacity: inherit;
@@ -413,6 +413,34 @@
     transition: opacity ease .3s;
     font-size: max(20px,1.3vw);
 }
+.desc-btn {
+    margin-top:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vw;
+    height: 5vh;
+    position: relative;
+    background: #228bc8;
+    border: 1px solid #228bc8;
+    border-radius: 30px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    line-height: 1.3;
+    text-align: left;
+    text-decoration: none;
+    transition-duration: 0.3s;
+  }
+  .desc-btn:hover {
+    background: #fff;
+    color: #228bc8;
+  }
+  .desc_btn:hover:before {
+    border-top: 2px solid #228bc8;
+    border-right: 2px solid #228bc8;
+  }
 .hider{
     position:fixed;
     width: 100vw;
