@@ -2,7 +2,7 @@
         body{
             /* background-color: #1A1A1A; */
             font-size: 15px;
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 300;
             margin: 0;
         }
@@ -65,7 +65,7 @@
         .titlecaption{
             color: white;
             position: relative;
-            font-family:'Noto Sans JP', sans-serif;
+            font-family: 'Klee One', cursive;
             font-size: max(2vw,21px);
             border-top: white solid 1px;
             left: 50%;
