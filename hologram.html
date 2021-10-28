@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords"
+        content="文化祭, 筑駒, 男子校, 筑波大学附属駒場中学校, 筑波大学付属駒場中学校, 彩雲, 第69回, 駒場, 筑波, 高校, 中学, 中学校, 高等学校, つくこま, ぶんかさい" />
+    <meta property="og:site_name" content="CG研究会公式サイト" />
+    <meta property="og:url" content="https://cgken-tk.com/hologram.html" />
+    <link rel="canonical" href="https://cgken-tk.com/hologram.html" />
+    <meta property="og:image" content="favicon.png" />
+    <meta property="twitter:title" content="2021筑駒文化祭CG研究会公式サイト" />
+    <meta property="og:title" content="CとG　| CG研究会公式" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="ようこそ！筑駒CG研究会文化祭デコへ。異次元の感動を、今。" />
+    <meta name="twitter:site" content="@2C_AR_VR" />
+    <meta name="twitter:description" content="ようこそ！筑駒CG研究会文化祭デコへ。異次元の感動を、今。" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <title>CとG - CG研究会</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jquery-3.5.1.min.js"></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.js"></script>
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+
+</head>
+
+<body>
+    <div>
+        <img src="src/holo-icon.png" class="arlogo">
+    </div>
+    <div class="content" style="height: 100vh;">
+        <div class="arstory" style="padding-top: 5vh;">
+            <h1 style="color: white;">ホログラム</h1>
+        </div>
+
+        <div class="stoimg">
+            <p>CG研究会ではホログラムの展示を行なっています！</p>
+            <p>会場にはアクリル板の反射パネルが準備されているのでお手持ちのスマホを使ってご覧になることができます！</p>
+        </div>
+        <div id="AR-show">
+            <div class="modelcontainer">
+                <h1 class="model">歯車</h1>
+                <!-- <video src=""></video> -->
+                <h1 id="batsu">×</h1>
+            </div>
+        </div>
+        <div
+            style="display: flex; height: 60vw; width: 80vw; margin:auto; padding-top: 5vh; margin-top: 5vh; margin-bottom: 5vh; border-top: #ffffff solid; word-break: normal; flex-wrap: wrap; justify-content: center; align-content: center;">
+            <div class="model-data-container">
+                <p class="modelData">リンゴ</p>
+                <p class="modelData">リンゴ</p>
+                <img class="AR-thumbnail" src="thumbnails/apple.png">
+            </div>
+            <!-- <div class="model-data-container">
+                <p class="modelData">panda</p>
+                <p class="modelData">パンダ</p>
+                <img class="AR-thumbnail" src="thumbnails/panda_thumbnail.png">
+            </div>
+            <div class="model-data-container">
+                <p class="modelData">mouse_machine_final</p>
+                <p class="modelData">マウス</p>
+                <img class="AR-thumbnail" src="thumbnails/mouse_thumbnail.png">
+            </div>
+            <br>
+            <div class="model-data-container">
+                <p class="modelData">sofa</p>
+                <p class="modelData">ソファー</p>
+                <img class="AR-thumbnail" src="thumbnails/sofa_thumbnail.png">
+            </div>
+            <div class="model-data-container">
+                <p class="modelData">pengin</p>
+                <p class="modelData">ペンギン</p>
+                <img class="AR-thumbnail" src="thumbnails/pengin_thumbnail.png">
+            </div>
+            <div class="model-data-container">
+                <p class="modelData">elephant</p>
+                <p class="modelData">ゾウ</p>
+                <img class="AR-thumbnail" src="thumbnails/elephant_thumbnail.png">
+            </div> -->
+        </div>
+
+        <div>
+            <h3 style="margin: 5vh 0px;">これからもどんどん更新していきますので是非お楽しみください</h3>
+        </div>
+
+        <div class="footer">
+            <h3 class="foo-title">C と G</h3>
+            <ul>
+                <li style="margin: 2vh 0px;"><a href="https://tsukukoma.bunkasai.info/" style="color: white;"
+                        target="_blank">本校文化祭公式HP</a>
+                </li>
+                <li style="margin: 2vh 0px;">お問い合わせ&middot;ご感想</li>
+                <li style="margin: 2vh 0px;">
+                    <a href="index.html" style="color: white;">topに戻る</a>
+                </li>
+            </ul>
+            <div class="copy">
+                <p>&copy;the&nbsp;fictional&nbsp;world&nbsp;HP&nbsp;production&nbsp;committee</p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        var $win = $(window);
+
+
+
+
+        let windowHeight = window.innerHeight;
+        let windowWidth = window.innerWidth;
+        let k = document.getElementsByClassName("AR-thumbnail");
+        for (let i = 0; i < k.length; i++) {
+            k[i].style.zIndex = 99999
+            k[i].addEventListener("click", function () {
+                let f = k[i].parentElement;
+
+                let modelName = f.children;
+                document.getElementsByClassName("model")[0].textContent = modelName[1].textContent;
+                let look = document.getElementById("modellook")
+                // look.src = "3Dmodels/" + modelName[0].textContent + ".glb";
+                // look.iosSrc = "3Dmodels/" + modelName[0].textContent + ".usdz";
+                // look.alt = modelName[1].textContent;
+                let show = document.getElementById('AR-show');
+                show.children[0].style.display = "inline"
+                show.style.display = "block";
+                show.style.position = "fixed"
+                show.style.top = "50vh"
+                show.style.left = "50vw"
+                show.style.zIndex = 9999
+                show.style.transform = "translate(-50%,-50%)"
+                $('#AR-show').animate({
+                    opacity: 1,
+                    width: "100vw",
+                    height: "100vh"
+                }, 300)
+
+            })
+        }
+        let batsu = document.getElementById("batsu");
+        batsu.addEventListener("click", function () {
+            let show = document.getElementById('AR-show');
+            show.children[0].style.display = "none"
+            console.log("hide")
+            $('#AR-show').animate({
+                zIndex: 0,
+                opacity: 0,
+                width: "0",
+                height: "0",
+                display: "none",
+                zIndex: 0
+            }, 300)
+        })
+    </script>
+    <style>
+        * {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+
+        h3 {
+            color: #fff;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        p {
+            font-size: 15px;
+            color: #fff;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+
+        .arstory {
+            padding-top: 100px;
+            width: 60vw;
+            margin: auto;
+            text-align: center;
+        }
+
+        .arstoryimg {
+            width: 30vw;
+            padding-bottom: 40px;
+        }
+
+        .start {
+            background: #ffffff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 9000;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .start p {
+            position: fixed;
+            left: 0%;
+            top: 0%;
+            margin: 0px;
+            padding: 0px;
+            display: none;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+
+        .twitter-share-button {
+            padding-top: 40px;
+        }
+
+
+        .start video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            -webkit-transform: translateY(-50%) translateX(-50%);
+
+            width: 100vw;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .arlogo {
+            width: 70vw;
+            min-width: 150px;
+            transform: translate(0%, -0%);
+            transition: all 1s;
+        }
+
+        .swiper-container {
+            position: relative;
+            max-width: 80vw;
+            margin: 10vh auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+        }
+
+        .AR-thumbnail {
+            max-height: 100%;
+            width: 80%;
+            cursor: pointer;
+        }
+
+        .tweet-conpe {
+            font-size: 25px;
+        }
+
+        .tweet-conpe p {
+            font-size: 15px;
+            width: 75%;
+        }
+
+        body {
+            text-align: center;
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #1A1A1A;
+        }
+
+        #title {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100;
+            margin-bottom: 100;
+            font-family: serif;
+            width: 80%;
+            border-bottom: black solid;
+        }
+
+        #AR-show {
+            display: none;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            background-color: #1A1A1A;
+            z-index: 0;
+            position: fixed;
+        }
+
+
+        .modelData {
+            display: none;
+        }
+
+        @media screen and(max-width: 767px) {
+            .start {
+                display: block;
+            }
+
+            .arlogo {
+                width: 175%;
+                transform: translate(0%, -0%);
+                transition: all 1s;
+            }
+
+            .arstory {
+                padding-top: 20px;
+                width: 60vw;
+                margin: auto;
+                text-align: center;
+            }
+
+            .arstoryimg {
+                width: 60vw;
+                padding-bottom: 10px;
+            }
+
+        }
+    </style>
+</body>

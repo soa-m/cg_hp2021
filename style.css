@@ -65,7 +65,7 @@
         .titlecaption{
             color: white;
             position: relative;
-            font-family: 'Klee One', cursive;
+            font-family: 'Noto Sans JP', sans-serif;
             font-size: max(2vw,21px);
             border-top: white solid 1px;
             left: 50%;
@@ -363,6 +363,7 @@
     font-size: max(15px,1vmax);
     text-align: left;
     bottom: 0;
+    z-index: 9000000000000;
 }
 .foo-title{
     width: max(300px,20vmax);
@@ -385,15 +386,28 @@
 }
 
 .desc-title{
+    position:relative;
+    max-height:5vh;
+    max-width: 80vw;
+    margin: 0;
+    font-family: 'Klee One', cursive;
+    transition: transform ease-in-out .5s;
+    z-index: 8999;
+    font-size: 1.7rem;
+    transform: matrix(1,0,0,1,0,60);
+}
+.desc-titlewrapper{
     position:fixed;
     left: 4vw;
-    top: 5vh;
+    top: 7vh;
     height:5vh;
     margin: 0;
     font-family: 'Klee One', cursive;
     opacity: inherit;
-    transition: top ease-in-out .5s;
-
+    transform: translate(0,30);
+    z-index: 8999;
+    overflow: hidden;
+    width: 100vw;
 }
 .desc-wrapper{
     width: 100vw;
@@ -401,17 +415,20 @@
     position: fixed;
     top: 0;
     left: 0;
-    opacity: 1; 
+    opacity: 0; 
+    z-index: 9999999999;
 }
 .desc-text{
     position: fixed;
     width: 40vw;
     min-width: 300px;
     right: 4vw;
-    top: 60vh;
+    bottom: 20vh;
     opacity: 0;
     transition: opacity ease .3s;
     font-size: max(20px,1.3vw);
+    z-index: inherit;
+    overflow: hidden;
 }
 .desc-btn {
     margin-top:15px;
@@ -419,6 +436,7 @@
     justify-content: center;
     align-items: center;
     width: 7vw;
+    min-width: 50px;
     height: 5vh;
     position: relative;
     background: #228bc8;
@@ -432,7 +450,36 @@
     text-align: left;
     text-decoration: none;
     transition-duration: 0.3s;
+    z-index: inherit;
+    cursor: pointer;
   }
+  .desc-background{
+      position: absolute;
+      transition:opacity ease 0.8s;
+      width: 100vw;
+      min-width: 800px;
+      left: 50vw;
+      top: 50vh;
+      transform: translate(-50%,-50%);
+      /* left: 5vw; */
+      margin: 0;
+      z-index: 8998;
+  }
+  .desc-background-logo{
+      position: absolute;
+      transition:opacity ease 0.8s;
+      width: 40vw;
+      left: 50vw;
+      transform: translate(-50%,-50%);
+      top: 48vh;
+      margin: 0;
+      z-index: 8999;
+  }
+  .setsumei{
+      border-bottom: solid;
+      width: auto;
+  }
+  .dest-titl
   .desc-btn:hover {
     background: #fff;
     color: #228bc8;
@@ -443,13 +490,14 @@
   }
 .hider{
     position:fixed;
+    transition:background-color ease 0.8s;
     width: 100vw;
     height: 20vh;
     top: 15vh;
     font-size: 3rem;
     margin: 0;
     font-family: 'Klee One', cursive;
-    z-index: 8999;
+    z-index: 9000;
     opacity: 1;
     background-color: white;
     color: transparent;
