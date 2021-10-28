@@ -46,7 +46,7 @@
 
         </div>
     </header>
-    <div class="content" style="height:200vh;">
+    <div class="content">
         <div class="page_center">
             <div>
                 <div class="titleimagewrapper">
@@ -83,16 +83,35 @@
             </div>
         </div>
 
-        <div class="desc-wrapper" style="display: none;">
-            <img src="images/hologram.png" class="desc-title">
-            <img src="images/proj.png" class="desc-title"></h2>
-            <img src="images/ar.png" class="desc-title"></h2>
-            <h2 class="desc-title">3Dプリンタ</h2>
-            <a class="desc-text">浮いてます浮いてます浮いてます浮いてます浮いてます浮いてます浮いてます浮いてます<br><button class="desc-btn">詳細</button></a>
-            <a class="desc-text">立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体立体<br><button class="desc-btn">詳細</button></a>
-            <a class="desc-text">動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く動く<br><button class="desc-btn">詳細</button></a>
-            <a class="desc-text">印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷印刷<br><button class="desc-btn">詳細</button></a>
-            <div class="hider"></div>
+        <div class="desc-wrapper">
+            <div class="desc-titlewrapper">
+                <!-- <h2 class="desc-title" style="color: white">ホログラム</h2> -->
+                <img src="images/hologram.png" class="desc-title">
+            </div>
+            <div class="desc-titlewrapper">
+                <img src="images/proj.png" class="desc-title"></h2>
+            </div>
+            <div class="desc-titlewrapper">
+                <img src="images/ar.png" class="desc-title"></h2>
+            </div>
+            <div class="desc-titlewrapper">
+                <h2 class="desc-title">3Dプリンタ</h2>
+            </div>
+            <a class="desc-text" style="color: white;">CG研に訪れたあなたはきっと目にすることだろう<div style="height: 3vh;"></div>
+                <div class="setsumei" style="color: pink;">空中に浮かぶ数々の幻想を</div><button class="desc-btn">詳細</button>
+            </a>
+            <a class="desc-text">CG研に訪れたあなたはきっと目にすることだろう<div style="height: 3vh;"></div>
+                <div class="setsumei" style="color: navy;">物理法則の限界を超える物体を</div><button class="desc-btn">詳細</button>
+            </a>
+            <a class="desc-text">CG研に訪れたあなたはきっと目にすることだろう<div style="height: 3vh;"></div>
+                <div class="setsumei" style="color: darkolivegreen;">三次元の世界に現れる夢を</div><button
+                    class="desc-btn">詳細</button>
+            </a>
+            <a class="desc-text">CG研に訪れたあなたはきっと目にすることだろう<div style="height: 3vh;"></div>
+                <div class="setsumei" style="color: darkslategray;">照らし出される無垢のオブジェを</div><button
+                    class="desc-btn">詳細</button>
+            </a>
+            <img src="src/holo-logo-fin.png" class="desc-background" style="background-color: black;">
         </div>
 
 
@@ -107,7 +126,7 @@
             <li>お問い合わせ&middot;ご感想</li>
         </ul>
         <div class="copy">
-            <p>&copy;the&nbsp;fictional&nbsp;world&nbsp;HP&nbsp;production&nbsp;committee</p>
+            <p>&copy;C&nbsp;と&nbsp;G&nbsp;HP&nbsp;production&nbsp;committee</p>
         </div>
     </div>
 
@@ -172,11 +191,14 @@
                 let memo = document.getElementsByClassName('desc-title')
                 let cnt = posY / windowHeight
                 // console.log(cnt)
+                if (cnt > 1) {
+                    document.getElementsByClassName('desc-wrapper')[0].style.opacity = 1
+                }
                 for (var i = 0; i < memo.length; i++) {
                     if (i + 1 < cnt && cnt < i + 2) {
-                        memo[i].style.top = '7vh';
+                        memo[i].style.transform = 'matrix(1,0,0,1,0,0)';
                     } else {
-                        memo[i].style.top = '15vh';
+                        memo[i].style.transform = 'matrix(1,0,0,1,0,60)';
                     }
                 }
                 let memo2 = document.getElementsByClassName('desc-text')
@@ -185,6 +207,26 @@
                         memo2[i].style.opacity = 1;
                     } else {
                         memo2[i].style.opacity = 0;
+                    }
+                }
+                let memo3 = document.getElementsByClassName('desc-background')
+                for (var i = 0; i < memo3.length; i++) {
+                    if (i + 1 < cnt && cnt < i + 2) {
+                        memo3[i].style.opacity = 1;
+                        // memo3[i].style.left = '0'
+                    } else {
+                        memo3[i].style.opacity = 0;
+                        // memo3[i].style.left = '20vw'
+                    }
+                }
+                let memo4 = document.getElementsByClassName('desc-background-logo')
+                for (var i = 0; i < memo4.length; i++) {
+                    if (i + 1 < cnt && cnt < i + 2) {
+                        memo4[i].style.opacity = 1;
+                        // memo3[i].style.left = '0'
+                    } else {
+                        memo4[i].style.opacity = 0;
+                        // memo3[i].style.left = '20vw'
                     }
                 }
             }
