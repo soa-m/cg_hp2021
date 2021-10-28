@@ -115,8 +115,9 @@
             <img src="src/suna.gif" class="desc-background"
                 style="background-color: black;opacity: .2;transition:opacity ease .7s;height: 100vmax;width: auto;">
             <img src="src/holo-logo-fin2.png" class="desc-background">
-            <img src="src/cube2.gif" class="desc-background"
-                style="background-color: black;opacity: .2;transition:opacity ease .7s;min-height: 100vh;min-width:100vw;">
+            <img src="src/holo-back.gif" class="desc-background">
+            <img src="src/ar-back.gif" class="desc-background">
+            <img src="src/printer-back.gif" class="desc-background">
             <!-- <img src="src/holo-logo-fin2.png" class="desc-background"> -->
 
         </div>
@@ -221,7 +222,7 @@
                 }
                 let memo3 = document.getElementsByClassName('desc-background')
                 for (var i = 0; i < memo3.length; i++) {
-                    if (Math.floor(i / 2) + 1 < cnt && cnt < Math.floor(i / 2) + 2) {
+                    if (Math.max(0, i - 1) + 1 < cnt && cnt < Math.max(0, i - 1) + 2) {
                         memo3[i].style.opacity = 1;
                         // memo3[i].style.left = '0'
                     } else {
