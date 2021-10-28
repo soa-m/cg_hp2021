@@ -429,6 +429,7 @@
     font-size: max(20px,1.3vw);
     z-index: inherit;
     overflow: hidden;
+    display: none;
 }
 .desc-btn {
     margin-top:15px;
@@ -455,7 +456,7 @@
   }
   .desc-background{
       position: absolute;
-      transition:opacity ease 0.8s;
+      transition:opacity ease 0.9s;
       width: 100vw;
       min-width: 800px;
       left: 50vw;
@@ -501,6 +502,13 @@
     opacity: 1;
     background-color: white;
     color: transparent;
+}
+.holovideo{
+    width: 100vmin;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%,-50%);
 }
 .content{
     height:600vh;

@@ -49,7 +49,7 @@
         <div id="AR-show">
             <div class="modelcontainer">
                 <h1 class="model">歯車</h1>
-                <!-- <video src=""></video> -->
+                <video muted autoplay loop src="./src/0001-0240_b.mp4" class="holovideo"></video>
                 <h1 id="batsu">×</h1>
             </div>
         </div>
@@ -57,7 +57,17 @@
             style="display: flex; height: 60vw; width: 80vw; margin:auto; padding-top: 5vh; margin-top: 5vh; margin-bottom: 5vh; border-top: #ffffff solid; word-break: normal; flex-wrap: wrap; justify-content: center; align-content: center;">
             <div class="model-data-container">
                 <p class="modelData">リンゴ</p>
+                <p class="modelData">ringo</p>
+                <img class="AR-thumbnail" src="thumbnails/apple.png">
+            </div>
+            <div class="model-data-container">
                 <p class="modelData">リンゴ</p>
+                <p class="modelData">ringo</p>
+                <img class="AR-thumbnail" src="thumbnails/apple.png">
+            </div>
+            <div class="model-data-container">
+                <p class="modelData">リンゴ</p>
+                <p class="modelData">ringo</p>
                 <img class="AR-thumbnail" src="thumbnails/apple.png">
             </div>
             <!-- <div class="model-data-container">
@@ -125,11 +135,11 @@
                 let f = k[i].parentElement;
 
                 let modelName = f.children;
-                document.getElementsByClassName("model")[0].textContent = modelName[1].textContent;
-                let look = document.getElementById("modellook")
+                document.getElementsByClassName("model")[0].textContent = modelName[0].textContent;
+                let look = document.getElementsByClassName("holovideo")[0]
                 // look.src = "3Dmodels/" + modelName[0].textContent + ".glb";
                 // look.iosSrc = "3Dmodels/" + modelName[0].textContent + ".usdz";
-                // look.alt = modelName[1].textContent;
+                look.src = "src/" + modelName[1].textContent + ".mp4";
                 let show = document.getElementById('AR-show');
                 show.children[0].style.display = "inline"
                 show.style.display = "block";
@@ -285,7 +295,7 @@
             width: 0;
             height: 0;
             opacity: 0;
-            background-color: #1A1A1A;
+            background-color: black;
             z-index: 0;
             position: fixed;
         }
