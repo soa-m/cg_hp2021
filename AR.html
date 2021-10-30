@@ -34,45 +34,24 @@
 </head>
 
 <body>
-    <div class="start">
-        <p><video src="background2.mp4" autoplay muted></video></p>
-    </div>
     <div>
         <img src="src/Regular_tetrahedron.png" class="arlogo">
     </div>
     <div class="content">
         <div class="arstory" style="padding-top: 5vh;">
-            <img src="src/ARstory.png" class="arstoryimg">
+            <h1 style="color: white;">AR</h1>
         </div>
 
         <div class="stoimg">
-            <p>あなたは今、地球にいる。</p>
-            <img src="src/point.png" class="img1">
-            <p>これらが宇宙船から見つかった物の一部だ</p>
-            <p>残念ながら使い方を解析することはできなかった</p>
-            <p>しかし、宇宙から送られてきた3Dデータを閲覧することはできる</p>
-            <img src="src/point.png" class="img1">
-            <p>サムネイルをクリックしてみてほしい</p>
-            <p>3Dモデルを見ることができるはずだ</p>
-            <img src="src/point.png" class="img1">
-            <p>ちなみに、ARCore・ARKitに対応している端末なら右下にAR表示マークが現れるはずだ</p>
-            <p>※macOS版のSafariには対応していません (iOS版は正常に表示されます)</p>
         </div>
         <div class="tweet-conpe">
-            <h3>ツイートしよう</h3>
-            <p>とった下のARで撮った写真をこのツイートボタンを押して、画像を選択し、題名をつけてツイートしよう！</p>
-            <img src="src/point.png" class="img1">
-            <p>#TFW_ARがつけられたツイートの中から<a>the fictional world公式アカウント</a>が、面白かった作品3つを発表します</p>
-            <img src="src/point.png" class="img1">
+            <h3>目の前の画面に現れるのは三次元の住人</h3>
+            <p>下のサムネイルをクリックして3Dモデルを見よう！</p>
+            <p>ARに対応している端末では開いた画面の右下にARマークが表示されるので、タップしてARをお楽しみください！</p>
             <p>期限は11/1 23:59までです。</p>
             <p style="color: tomato;">※画像をつけるには あらかじめツイート画面でサイトのサムネイルを削除してください</p>
             <img src="src/point.png" class="img1">
             <p>Google chromeアプリではARボタンが表示されない可能性があります</p>
-        </div>
-        <div class="button">
-            <a href="https://twitter.com/share" class="twitter-share-button"
-                data-url="https://the-fictional-world.net/Augmented.html" data-text="私のAR写真はこれ！  題名「」"
-                data-via="2C_AR_VR" data-lang="ja" data-hashtags="TFW_AR">tweet</a>
         </div>
         <div id="AR-show">
             <div class="modelcontainer">
@@ -88,35 +67,9 @@
         <div
             style="display: flex; height: 60vw; width: 80vw; margin:auto; padding-top: 5vh; margin-top: 5vh; margin-bottom: 5vh; border-top: #ffffff solid; word-break: normal; flex-wrap: wrap; justify-content: center; align-content: center;">
             <div class="model-data-container">
-                <p class="modelData">kaeru</p>
-                <p class="modelData">カエル</p>
-                <img class="AR-thumbnail" src="thumbnails/kaeru_thumbnail.png">
-            </div>
-            <div class="model-data-container">
-                <p class="modelData">panda</p>
-                <p class="modelData">パンダ</p>
-                <img class="AR-thumbnail" src="thumbnails/panda_thumbnail.png">
-            </div>
-            <div class="model-data-container">
-                <p class="modelData">mouse_machine_final</p>
-                <p class="modelData">マウス</p>
-                <img class="AR-thumbnail" src="thumbnails/mouse_thumbnail.png">
-            </div>
-            <br>
-            <div class="model-data-container">
-                <p class="modelData">sofa</p>
-                <p class="modelData">ソファー</p>
-                <img class="AR-thumbnail" src="thumbnails/sofa_thumbnail.png">
-            </div>
-            <div class="model-data-container">
-                <p class="modelData">pengin</p>
-                <p class="modelData">ペンギン</p>
-                <img class="AR-thumbnail" src="thumbnails/pengin_thumbnail.png">
-            </div>
-            <div class="model-data-container">
-                <p class="modelData">elephant</p>
-                <p class="modelData">ゾウ</p>
-                <img class="AR-thumbnail" src="thumbnails/elephant_thumbnail.png">
+                <p class="modelData">kinkaku</p>
+                <p class="modelData">金の寺</p>
+                <img class="AR-thumbnail" src="thumbnails/kinkaku.png">
             </div>
         </div>
 
@@ -145,61 +98,6 @@
 
         var $win = $(window);
 
-        $win.on('load', function () {
-            var windowWidth = window.innerWidth;
-
-            if (windowWidth > 1024) {
-                console.log(windowWidth)
-                function no_scroll() {
-
-                    document.addEventListener("mousewheel", scroll_control, { passive: false });
-
-                    document.addEventListener("touchmove", scroll_control, { passive: false });
-                }
-
-                function return_scroll() {
-
-                    document.removeEventListener("mousewheel", scroll_control, { passive: false });
-
-                    document.removeEventListener('touchmove', scroll_control, { passive: false });
-                }
-
-                function scroll_control(event) {
-                    event.preventDefault();
-                }
-
-                $(window).ready(function () {
-                    var video = document.getElementsByTagName('video')[0];
-                    video.addEventListener('ended', function () {
-                        video.autoplay = false;
-                        $('.start').fadeOut(500);
-                        return_scroll();
-                    }, false);
-                });
-
-                $(function () {
-                    setTimeout(function () {
-                        no_scroll();
-                        $('.start p').fadeIn(000);
-                    }, 00);
-
-
-                });
-
-
-
-            } else if (windowWidth > 768) {
-                document.getElementsByClassName('start')[0].style.display = "none"
-                    ;
-
-            } else {
-                document.getElementsByClassName('start')[0].style.display = "none"
-
-                    ;
-
-            }
-        });
-
 
 
 
@@ -214,8 +112,8 @@
                 let modelName = f.children;
                 document.getElementsByClassName("model")[0].textContent = modelName[1].textContent;
                 let look = document.getElementById("modellook")
-                look.src = "3Dmodels/" + modelName[0].textContent + ".glb";
-                look.iosSrc = "3Dmodels/" + modelName[0].textContent + ".usdz";
+                look.src = "src/" + modelName[0].textContent + ".glb";
+                look.iosSrc = "src/" + modelName[0].textContent + ".usdz";
                 look.alt = modelName[1].textContent;
                 let show = document.getElementById('AR-show');
                 console.log("show")
